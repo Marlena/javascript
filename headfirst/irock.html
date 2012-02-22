@@ -4,19 +4,29 @@
 	
 <link rel="stylesheet" type="text/css" href="irock.css" />
 <title>iRock</title>
+<script type="text/javascript" src="cookie.js"></script>
 <script type="text/javascript">
+	var userName;
+	
+	function greetUser(){
+		alert("Hello, I am your pet rock.");
+	}
 	function touchRock(){
-		var userName = prompt("What is your name?", "Enter your name here.");
+		userName = prompt("What is your name?", "Enter your name here.");
 		if (userName){
 			alert("It is good to meet you, " + userName + ".");
 			document.getElementById("rockImg").src = "rock_happy.png";
 			setTimeout("document.getElementById('rockImg').src = 'rock.png' ", 0.5 * 60 * 1000);
 		}
+	function resizeRock(){
+		document.getElementById("rockImg").style.height= (document.body.clientHeight - 100) * 0.9;
+	}	
+	
 	}
 </script>
 </head>
 
-<body onload="alert('Hello, I am your pet rock.');">
+<body onload="greetUser();">
 <div>
 	<img id="rockImg" src="rock.png" alt="iRock" onclick="touchRock();"/>
 </div>
